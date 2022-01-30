@@ -1,0 +1,51 @@
+<div
+  bsModal
+  #modal="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modal"
+>
+  <div id="myModal" class="modal">
+    <div class="modal-header">
+      <button
+        data-dismiss="modal"
+        class="close"
+        type="button"
+        (click)="close()"
+      >
+        ×
+      </button>
+      <h3>Search results</h3>
+    </div>
+    <div class="modal-body">
+      <ul class="recent-posts">
+        <li *ngFor="let artist of artists">
+          <div class="user-thumb">
+            <img
+              width="40"
+              height="40"
+              alt="User"
+              [src]="artist.image[0]?.['#text']"
+            />
+          </div>
+          <div class="article-post">
+            <div class="fr">
+              <a
+              
+                (click)="goToArtistPage(artist.name)"
+                class="btn btn-success btn-mini"
+                >View details</a
+              >
+            </div>
+
+            <h5>
+              {{ artist.name }}
+            </h5>
+            <span class="user-info"> LISTENERS : {{ artist.listeners }} </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

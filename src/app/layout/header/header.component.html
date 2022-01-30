@@ -1,0 +1,49 @@
+<div id="header">
+  <h1><a href="dashboard.html">Fuck Admin</a></h1>
+</div>
+<div class="btn-group rightzero">
+  <a class="top_message tip-left" title="Manage Files"
+    ><i class="icon-file"></i
+  ></a>
+  <a class="top_message tip-bottom" title="Manage Users"
+    ><i class="icon-user"></i
+  ></a>
+  <a class="top_message tip-bottom" title="Manage Comments"
+    ><i class="icon-comment"></i><span class="label label-important">5</span></a
+  >
+  <a class="top_message tip-bottom" title="Manage Orders"
+    ><i class="icon-shopping-cart"></i
+  ></a>
+</div>
+<div id="user-nav" class="navbar navbar-inverse"></div>
+<div id="search">
+  <input type="text" placeholder="Search here..." #searchBox />
+  <button
+    type="submit"
+    class="tip-left"
+    title="Search"
+    (click)="searchArtist(searchBox.value)"
+  >
+    <i class="icon-search icon-white"></i>
+  </button>
+</div>
+
+<div id="sidebar">
+  <a [routerLink]="['./artists']" class="visible-phone"
+    ><i class="icon icon-home"></i> Artists</a
+  >
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./artists']"
+        ><i class="icon icon-home"></i> <span>Artists</span></a
+      >
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./compresion']"
+        ><i class="icon icon-signal"></i> <span>Comparison</span></a
+      >
+    </li>
+  </ul>
+</div>
+
+<search-result #search></search-result>

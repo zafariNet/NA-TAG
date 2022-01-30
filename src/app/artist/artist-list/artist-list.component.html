@@ -1,0 +1,146 @@
+<div class="row-fluid">
+  <div class="span3"></div>
+  <div class="span6">
+    <div class="widget-box">
+      <div class="widget-title">
+        <span class="icon"><i class="icon-user"></i></span>
+        <h5>Site Analytics</h5>
+        <div class="buttons" style="margin: 3px 5px 0 0">
+          <div class="controls">
+            <select
+              [(ngModel)]="selectedCountry"
+              (change)="countryChanghandler()"
+              name="selectedCountry"
+            >
+              <option [value]="'Germany'">Germany</option>
+              <option [value]="'France'">France</option>
+              <option [value]="'United States'">United States</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="widget-content nopadding">
+        <ul class="recent-posts">
+          <li *ngFor="let artist of artists">
+            <div class="user-thumb">
+              <img
+                width="40"
+                height="40"
+                alt="User"
+                [src]="artist.image[0]?.['#text']"
+              />
+            </div>
+            <div class="article-post">
+              <div class="fr">
+                <a
+                  [routerLink]="['/artists', artist.name, 'details']"
+                  class="btn btn-success btn-mini"
+                  >View details</a
+                >
+              </div>
+
+              <h5>
+                {{ artist.name }}
+              </h5>
+              <span class="user-info">
+                LISTENERS : {{ artist.listeners }}
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="span3"></div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="card mb-4">
+      <div class="card-header pb-0">
+        <div class="row">
+          <div class="col-10 d-flex align-items-center">
+            <h6 class="mb-0">Artists</h6>
+          </div>
+          <div class="col-2 text-center">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              [(ngModel)]="selectedCountry"
+              (change)="countryChanghandler()"
+              name="selectedCountry"
+            >
+              <option [value]="'Germany'">Germany</option>
+              <option [value]="'France'">France</option>
+              <option [value]="'United States'">United States</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body px-0 pt-0 pb-2">
+        <div class="table-responsive p-0" *ngIf="!loading">
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th
+                  class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                >
+                  Artist Name
+                </th>
+                <th
+                  class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
+                >
+                  Listeners
+                </th>
+                <th
+                  class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                >
+                  Streamable
+                </th>
+
+                <th class="text-secondary opacity-7"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let artist of artists">
+                <td>
+                  <div class="d-flex px-2 py-1">
+                    <div>
+                      <img
+                        [src]="artist.image[0]?.['#text']"
+                        class="avatar avatar-sm me-3"
+                        alt="user1"
+                      />
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="mb-0 text-sm">{{ artist.name }}</h6>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0">
+                    {{ artist.listeners }}
+                  </p>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="badge badge-sm bg-gradient-success">{{
+                    artist.streamable
+                  }}</span>
+                </td>
+
+                <td class="align-middle">
+                  <a
+                    class="btn bg-gradient-dark mb-0"
+                    [routerLink]="['/artists', artist.name, 'details']"
+                    >View Detail</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

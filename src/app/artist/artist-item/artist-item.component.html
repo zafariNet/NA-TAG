@@ -1,0 +1,52 @@
+<h1 class="row-fluid">{{ artist.name }}</h1>
+<div class="row-fluid">
+  <div class="span8">
+    <div class="widget-box">
+      <div class="widget-title">
+        <span class="icon">
+          <i class="icon-th-list"></i>
+        </span>
+        <h5>Informations</h5>
+      </div>
+      <div class="widget-content">
+        <div class="row-fluid">
+          <div class="span4">
+            <img [src]="artist.image[5]?.['#text']" />
+          </div>
+          <div class="span8">
+            <p>{{ artist.bio.summary }}</p>
+            <fieldset>
+              <legend>Tags</legend>
+              <span
+                style="padding-right: 5px"
+                *ngFor="let item of artist.tags['tag']"
+              >
+                <a class="label label-success">{{ item.name }}</a>
+              </span>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="widget-box">
+      <div class="widget-title">
+        <span class="icon">
+          <i class="icon-th-list"></i>
+        </span>
+        <h5>Similars</h5>
+      </div>
+      <div class="widget-content">
+        <ul class="activity-list">
+          <li *ngFor="let item of artist.similar['artist']">
+            <a [routerLink]="['/artists', item.name, 'details']">
+              <i class="icon-user"></i>
+              {{ item.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
